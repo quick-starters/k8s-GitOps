@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('git pull') {
       steps {
-        // https://github.com/quick-starters/k8s-GitOps.git will replace by sed command before RUN
+        // git@github.com:quick-starters/k8s-GitOps.git will replace by sed command before RUN
         git url: 'https://github.com/quick-starters/k8s-GitOps.git', branch: 'main'
       }
     }
@@ -12,6 +12,6 @@ pipeline {
         kubernetesDeploy(kubeconfigId: 'kubeconfig',
                          configs: '*.yaml')
       }
-    }    
+    }
   }
 }
